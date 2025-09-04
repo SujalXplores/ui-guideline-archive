@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/D:\\ui-guideline-archive/**)",
+      "Read(/D:\\ui-guideline-archive\\app/**)",
+      "Read(/D:\\ui-guideline-archive\\app/**)",
+      "WebSearch",
+      "WebFetch(domain:vercel.com)",
+      "Bash(pnpm add:*)",
+      "Read(/D:\\ui-guideline-archive\\public/**)",
+      "Read(/D:\\ui-guideline-archive\\app/**)",
+      "Read(/D:\\ui-guideline-archive\\app/**)",
+      "Bash(pnpm run build)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
