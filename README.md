@@ -44,6 +44,7 @@ The [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) spec is deliberately not dup
   - Hovering trivial buttons
 - Looping animations should pause when not visible on the screen to offload CPU and GPU usage
 - Use `scroll-behavior: smooth` for navigating to in-page anchors, with an appropriate offset
+- Respect user motion preferences with the `prefers-reduced-motion` media query. A non-negotiable accessibility requirement. Disables or reduces animations for users with vestibular disorders. Animations should be wrapped in `@media (prefers-reduced-motion: no-preference) {... }` to avoid jank for users who have this setting enabled.
 
 ## Touch
 
@@ -78,7 +79,9 @@ The [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) spec is deliberately not dup
 - Illustrations built with HTML should have an explicit `aria-label` instead of announcing the raw DOM tree to people using screen readers
 - Gradient text should unset the gradient on `::selection` state
 - When using nested menus, use a "prediction cone" to prevent the pointer from accidentally closing the menu when moving across other elements.
-
+- Never use `outline: none` without providing a replacement. `:focus-visible` is the modern standard for showing focus rings only for keyboard navigation, avoiding the "ugly" outline on mouse clicks that developers often complain about.
+- Ensure the `lang` attribute on the `<html>` tag is set and dynamically updated if the language changes. This is the most critical attribute for accessibility and internationalization. It tells screen readers which pronunciation rules to use and informs translation tools.
+- Announce dynamic content changes (like search results or form errors) to screen readers using ARIA live regions `(aria-live)`. Essential for SPAs where content changes without a page reload. `aria-live="polite"` announces changes when the user is idle, while `aria-live="assertive"` interrupts immediately for critical updates.
 
 ## Design
 
@@ -89,6 +92,14 @@ The [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) spec is deliberately not dup
   - Show a temporary inline checkmark on a successful copy, not a notification
   - Highlight the relevant input(s) on form error(s)
 - Empty states should prompt to create a new item, with optional templates
+
+## Performance
+- Use modern image formats like `AVIF` and `WebP` with a fallback using the `<picture>` element. These formats offer significantly better compression than JPEG/PNG. The `<picture>` element allows the browser to choose the first supported format, ensuring backward compatibility.
+- Implement font subsetting to only include the characters (glyphs) actually used on the site. Font files can be very large. Subsetting, especially for icon fonts or languages with large character sets, can dramatically reduce file size. Many build tools and font services offer this automatically.
+- Optimize resource loading with `preload`, `prefetch`, `dns-prefetch`, and `preconnect`. Preload critical resources like fonts and hero images to ensure they are available as soon as possible. Prefetch resources that might be needed for future navigation, and use dns-prefetch and preconnect for third-party domains to reduce latency.
+- Use `font-display: swap` to ensure text is visible immediately using a fallback font while the web font loads. Prevents the "Flash of Invisible Text" (FOIT) and improves perceived performance. The text may reflow when the web font loads (Flash of Unstyled Text - FOUT), but visible content is always better than a blank space.
+- Avoid CSS `@import` inside CSS files as it blocks parallel downloads.	
+Use multiple `<link>` tags in your HTML instead. `@import` forces a sequential download (the browser must download and parse the first CSS file before it discovers the import and starts downloading the second), which harms performance.
 
 [^1]: Switching between dark mode or light mode will trigger transitions on elements that are meant for explicit interactions like hover. We can [disable transitions temporarily](https://paco.me/writing/disable-theme-transitions) to prevent this. For Next.js, use [next-themes](https://github.com/pacocoursey/next-themes) which prevents transitions out of the box.
 [^2]: This is a matter of taste but some interactions just feel better with no motion. For example, the native macOS right click menu only animates out, not in, due to the frequent usage of it.
