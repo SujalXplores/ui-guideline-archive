@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "geist": "1.5.1",
     "gray-matter": "4.0.3",
     "next": "16.0.3",
     "next-mdx-remote": "5.0.0",

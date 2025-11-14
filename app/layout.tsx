@@ -1,7 +1,8 @@
 import './globals.scss';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+import { Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 const url = 'https://ui-guideline-archive.vercel.app';
 const title = 'UI Guidelines Archive';
@@ -53,10 +54,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${inter.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

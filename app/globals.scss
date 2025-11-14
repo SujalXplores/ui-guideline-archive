@@ -7,10 +7,10 @@
 }
 
 :root {
-  --ff-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+  --ff-sans: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;
-  --ff-mono: var(--font-geist-mono), 'Menlo', 'Consolas', 'Monaco', monospace;
+  --ff-mono: monospace;
   --cyan: hsl(180, 100%, 50%);
   --violet: hsl(250, 70%, 60%);
   --gray1: hsl(0 0% 99%);

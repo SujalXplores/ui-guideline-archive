@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      geist:
-        specifier: 1.5.1
-        version: 1.5.1(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.0))
       gray-matter:
         specifier: 4.0.3
         version: 4.0.3
@@ -374,7 +371,7 @@ packages:
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
-      '@types/react': 19.2.4
+      '@types/react': ^19.2.0
 
   '@types/react@19.2.4':
     resolution: {integrity: sha512-tBFxBp9Nfyy5rsmefN+WXc1JeW/j2BpBHFdLZbEVfs9wn3E3NRFxwV0pJg8M1qQAexFpvz73hJXFofV0ZAu92A==}
@@ -520,11 +517,6 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
-
-  geist@1.5.1:
-    resolution: {integrity: sha512-mAHZxIsL2o3ZITFaBVFBnwyDOw+zNLYum6A6nIjpzCGIO8QtC3V76XF2RnZTyLx1wlDTmMDy8jg3Ib52MIjGvQ==}
-    peerDependencies:
-      next: '>=13.2.0'
 
   github-slugger@2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
@@ -1405,10 +1397,6 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
     optional: true
-
-  geist@1.5.1(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.0)):
-    dependencies:
-      next: 16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.0)
 
   github-slugger@2.0.0: {}
 
