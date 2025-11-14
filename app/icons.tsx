@@ -211,6 +211,47 @@ export function Design(): ReactElement {
   );
 }
 
+export function Content(): ReactElement {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      color="currentColor"
+    >
+      <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 8h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M7 12h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M7 16h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function Forms(): ReactElement {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      color="currentColor"
+    >
+      <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="7" y="7" width="3" height="3" rx="0.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 8h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="7" y="12" width="3" height="3" rx="0.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 13h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="7" y="17" width="3" height="3" rx="0.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 18h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function GitHub(): ReactElement {
   return (
     <svg
@@ -237,4 +278,6 @@ export const Icons: Record<string, ReactElement> = {
   design: <Design />,
   accessibility: <Accessibility />,
   performance: <Performance />,
+  content: <Content />,
+  forms: <Forms />,
 };
